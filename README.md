@@ -1,4 +1,4 @@
-script to convert yolo txt to labelme json<br>
+script to convert yolo txt to labelme json (rectangle bounding box only)<br>
 usage example:
 ```
 python coco2json.py --width 1280 --height 720 --txt_filepath "coco_txt/1.txt" --output_json_path "example/1.json" --image_name_in_labelme_selected_dir "1.jpg" --train_class_dict_yaml_path "train_class_dict.yaml"
