@@ -1,5 +1,17 @@
 import json 
 import yaml
+import copy
+
+EXAMPLE_JSON = {
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+  ],
+  "imagePath": "",
+  "imageData": None,
+  "imageHeight": 0,
+  "imageWidth": 0
+}
 
 def read_yaml(file_path):
     with open(file_path, 'r') as file:
@@ -30,19 +42,9 @@ def coor2coor(yolo_coor, imageWidth, imageHeight):
     return [x_min, y_min, x_max, y_max]
 
 
-EXAMPLE_JSON = {
-  "version": "5.6.1",
-  "flags": {},
-  "shapes": [
-  ],
-  "imagePath": "",
-  "imageData": None,
-  "imageHeight": 0,
-  "imageWidth": 0
-}
 class Total_example_json:
     def __init__(self):
-        self.result = EXAMPLE_JSON
+        self.result = copy.deepcopy(EXAMPLE_JSON)
         self.result["imageData"] = None
     def add_object(self, new_object_json):
         self.result["shapes"].append(new_object_json)
